@@ -12,10 +12,10 @@ window.onload = function initMap() {
 
     var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-    var maker = new google.maps.Maker({
+    //マーカー作成
+    var marker = new google.maps.Marker({
         position: mapCenter,
-        animation: google.maps.animation.BOUNCE,
+        animation: google.maps.Animation.DROP
     });
-
-    maker.setMap(map);
+    marker.setMap(map);
 }
