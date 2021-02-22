@@ -1,4 +1,4 @@
-﻿function initMap() {
+﻿function getMap() {
 
     //getElementById を使う方法の記述例
     var place= document.getElementById("place").value;

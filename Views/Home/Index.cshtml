@@ -9,9 +9,13 @@
         <div id="map" style="height:600px; width:600px;"></div>
     </div>
     <div class="col-md-4">
-        <input type="button" value="View Map" onclick="initMap()" />
+        <input type="button" value="View Map" onclick="getMap()" />
         <p>地名を入力し、"View Map"を押してください</p>
         <input id="place" type="text" />
+        <input type="button" value="Get Route" onclick="getRoute()" />
+        <p>始点と終点を入力し、"Get Route"を押してください</p>
+        <input id="start_place" type="text" placeholder="始点"/>
+        <input id="end_place" type="text"placeholder="終点"/>
     </div>
     <script>
 

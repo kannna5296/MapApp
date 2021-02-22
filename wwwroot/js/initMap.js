@@ -18,4 +18,9 @@ window.onload = function initMap() {
         animation: google.maps.Animation.DROP
     });
     marker.setMap(map);
+
+    // 経路を取得
+    directionsDisplay = new google.maps.DirectionsRenderer();
+    directionsDisplay.setMap(map);
+    directionsDisplay.setPanel(document.getElementById('directionsPanel'));     // 経路詳細
 }
