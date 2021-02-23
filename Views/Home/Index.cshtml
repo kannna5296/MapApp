@@ -3,19 +3,30 @@
 }
 <div class="row">
     <div class="col-md-8">
-        The World from my view
-    </div>
-    <div class="col-md-8">
+        <p>The World from my view</p>
         <div id="map" style="height:600px; width:600px;"></div>
     </div>
     <div class="col-md-4">
-        <input type="button" value="View Map" onclick="getMap()" />
-        <p>地名を入力し、"View Map"を押してください</p>
-        <input id="place" type="text" />
-        <input type="button" value="Get Route" onclick="getRoute()" />
-        <p>始点と終点を入力し、"Get Route"を押してください</p>
-        <input id="start_place" type="text" placeholder="始点"/>
-        <input id="end_place" type="text"placeholder="終点"/>
+        <div class="field">
+            <p class="description">地名を入力し、"View Map"を押してください</p>
+            <input id="address" type="text" />
+            <button id="getMap" class="btn">Get Map</button>
+        </div>
+        <div class="field">
+            <p class="description">始点と終点を入力し、"Get Route"を押してください</p>
+            <input id="start" type="text" placeholder="始点" />
+            <input id="end" type="text" placeholder="終点" />
+            <div>
+                <b>Mode of Travel: </b>
+                <select id="travelmode">
+                    <option value="DRIVING">Driving</option>
+                    <option value="WALKING">Walking</option>
+                    <option value="BICYCLING">Bicycling</option>
+                    <option value="TRANSIT">Transit</option>
+                </select>
+            </div>
+            <button id="getRoute" class="btn" value="Get Route">Get Route</button>
+        </div>
     </div>
     <script>
 
