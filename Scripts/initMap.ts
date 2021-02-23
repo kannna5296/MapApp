@@ -58,6 +58,12 @@ function calculateAndDisplayRoute(
     var start = (document.getElementById("start") as HTMLInputElement).value;
     var end = (document.getElementById("end") as HTMLInputElement).value;
     var travelMode = (document.getElementById("travelmode") as HTMLInputElement).value;
+
+    directionsRenderer.setOptions({
+        polylineOptions: {
+            strokeColor: '#6F51A1'
+        }
+    });
     directionsService.route(
         {
             origin: start,

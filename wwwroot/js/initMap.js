@@ -40,6 +40,11 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
     var start = document.getElementById("start").value;
     var end = document.getElementById("end").value;
     var travelMode = document.getElementById("travelmode").value;
+    directionsRenderer.setOptions({
+        polylineOptions: {
+            strokeColor: '#6F51A1'
+        }
+    });
     directionsService.route({
         origin: start,
         destination: end,
