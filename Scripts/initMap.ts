@@ -54,15 +54,15 @@ function calculateAndDisplayRoute(
     directionsService: google.maps.DirectionsService,
     directionsRenderer: google.maps.DirectionsRenderer
 ) {
+    //始点・終点・モード取得
+    var start = (document.getElementById("start") as HTMLInputElement).value;
+    var end = (document.getElementById("end") as HTMLInputElement).value;
+    var travelMode = (document.getElementById("travelmode") as HTMLInputElement).value;
     directionsService.route(
         {
-            origin: {
-                query: (document.getElementById("start") as HTMLInputElement).value,
-            },
-            destination: {
-                query: (document.getElementById("end") as HTMLInputElement).value,
-            },
-            travelMode: google.maps.TravelMode.DRIVING,
+            origin: start,
+            destination: end,
+            travelMode: google.maps.TravelMode[travelMode]
         },
         (response, status) => {
             if (status === google.maps.DirectionsStatus.OK) {

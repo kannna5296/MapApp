@@ -36,14 +36,14 @@ function geocodeAddress(geocoder, resultsMap) {
 }
 // 経路検索メソッド
 function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+    //始点・終点・モード取得
+    var start = document.getElementById("start").value;
+    var end = document.getElementById("end").value;
+    var travelMode = document.getElementById("travelmode").value;
     directionsService.route({
-        origin: {
-            query: document.getElementById("start").value,
-        },
-        destination: {
-            query: document.getElementById("end").value,
-        },
-        travelMode: google.maps.TravelMode.DRIVING,
+        origin: start,
+        destination: end,
+        travelMode: google.maps.TravelMode[travelMode]
     }, function (response, status) {
         if (status === google.maps.DirectionsStatus.OK) {
             directionsRenderer.setDirections(response);
