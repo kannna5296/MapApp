@@ -1,1 +1,52 @@
-<mxfile host="app.diagrams.net" modified="2021-03-02T13:36:06.231Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36" version="14.4.3" etag="At8YYEyllRTzRJwR9_x9" type="github"><diagram id="7k-kA-cjytcNQpCTQ6h1">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2021-03-02T14:06:31.309Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36" etag="HEqvHshhHqk2aMvsIxU6" version="14.4.3" type="github">
+  <diagram id="7k-kA-cjytcNQpCTQ6h1" name="Page-1">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="B92bvxW47aibF1hjnhwQ-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="480" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="B92bvxW47aibF1hjnhwQ-2" value="GoogleMap" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="90" y="90" width="230" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="B92bvxW47aibF1hjnhwQ-3" value="地点検索ボタン" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="340" y="120" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="B92bvxW47aibF1hjnhwQ-4" value="経路検索ボタン" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="340" y="220" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="B92bvxW47aibF1hjnhwQ-5" value="地点入力" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="90" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="B92bvxW47aibF1hjnhwQ-6" value="&lt;span&gt;経路検索:終点&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="190" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="B92bvxW47aibF1hjnhwQ-7" value="経路検索:始点" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="160" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="B92bvxW47aibF1hjnhwQ-8" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="480" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="B92bvxW47aibF1hjnhwQ-10" value="履歴&lt;br&gt;画面へ" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="150" y="40" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="B92bvxW47aibF1hjnhwQ-9" value="タイトル" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="40" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="B92bvxW47aibF1hjnhwQ-20" value="　　©hiro @Jzm_enginner" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="340" width="480" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="B92bvxW47aibF1hjnhwQ-24" value="CWspace A 詳細" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="260" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="B92bvxW47aibF1hjnhwQ-25" value="CWspace B 詳細" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="260" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="B92bvxW47aibF1hjnhwQ-26" value="CWspace C 詳細" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="260" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
