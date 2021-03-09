@@ -1,4 +1,5 @@
 ﻿using GoogleMap.Models;
+using MapApp.Context;
 using MapApp.Service;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -14,9 +15,12 @@ namespace GoogleMap.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly MyDatabaseContext _context;
+
+        public HomeController(ILogger<HomeController> logger, MyDatabaseContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
