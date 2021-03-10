@@ -27,7 +27,7 @@ namespace GoogleMap
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<MyDatabaseContext>(options =>
+            services.AddDbContext<CoworkingspaceContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
         }
 

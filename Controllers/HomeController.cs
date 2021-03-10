@@ -15,9 +15,9 @@ namespace GoogleMap.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        private readonly MyDatabaseContext _context;
+        private readonly CoworkingspaceContext _context;
 
-        public HomeController(ILogger<HomeController> logger, MyDatabaseContext context)
+        public HomeController(ILogger<HomeController> logger, CoworkingspaceContext context)
         {
             _logger = logger;
             _context = context;
