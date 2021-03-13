@@ -1,5 +1,6 @@
 ﻿using GoogleMap.Models;
 using MapApp.Context;
+using MapApp.Models;
 using MapApp.Service;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -25,6 +26,7 @@ namespace GoogleMap.Controllers
 
         public IActionResult Index()
         {
+            var aa = _context.Find<Coworkingspace>(1);
             return View();
         }
 
