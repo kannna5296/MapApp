@@ -26,14 +26,8 @@ namespace GoogleMap.Controllers
 
         public IActionResult Index()
         {
-            var aa = _context.Find<Coworkingspace>(1);
             return View();
         }
 
-        public IActionResult GetCW()
-        {
-            CoworkingSpaceService service = new CoworkingSpaceService();
-            return View();
-        }
     }
 }
