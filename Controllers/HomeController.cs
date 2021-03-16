@@ -1,8 +1,4 @@
-﻿using GoogleMap.Models;
-using MapApp.Context;
-using MapApp.Models;
-using MapApp.Service;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -16,12 +12,9 @@ namespace GoogleMap.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        private readonly CoworkingspaceContext _context;
-
-        public HomeController(ILogger<HomeController> logger, CoworkingspaceContext context)
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            _context = context;
         }
 
         public IActionResult Index()

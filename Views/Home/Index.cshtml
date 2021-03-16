@@ -1,5 +1,4 @@
-﻿@model List<MapApp.Models.Coworkingspace>
-@{
+﻿@{
     ViewData["Title"] = "Home Page";
 }
 <div class="row">
@@ -44,12 +43,3 @@
         <p>CW詳細C</p>
     </div>
 </div>
-
-@if (Model != null)
-{
-    @foreach (var coworkingspace in Model.Select((Value, Index) => new { Value, Index }))
-    {
-        <input id=@string.Format("cwlat{0}", coworkingspace.Index ) value=@coworkingspace.Value.Lat type="hidden">
-        <input id=@string.Format("cwlon{0}", coworkingspace.Index ) value=@coworkingspace.Value.Lon type="hidden">
-    }
-}
