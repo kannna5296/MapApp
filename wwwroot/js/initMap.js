@@ -16,11 +16,6 @@ window.onload = (function (initMap) {
     document.getElementById("getRoute").addEventListener("click", function () {
         calculateAndDisplayRoute(directionsService, directionsRenderer);
     });
-
-    // コワーキングスペース表示　リスナー設置
-    document.getElementById("getCW").addEventListener("click", function () {
-        getCoworkingspace();
-    });
 });
 // 地点検索 地点⇔座標変換メソッド
 function geocodeAddress(geocoder, resultsMap) {

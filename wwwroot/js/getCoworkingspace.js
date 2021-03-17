@@ -1,23 +1,25 @@
-//function getCoworkingspapce() {
-//    var url = "https://coworkingspaceapi.azurewebsites.net/Coworkingspace";
-//    console.log(url);
-//}
-
-function getCoworkingspace() {
-    $.getJSON("https://coworkingspaceapi.azurewebsites.net/Coworkingspace",
-        {
-            zipcode: $('#zip').val()
-        }
-    )
-         結果を取得したら…
-        .done(function (data) {
-             中身が空でなければ、その値を［住所］欄に反映
-            if (data.results) {
-                var result = data.results[0];
-                console.log(result);
-                 中身が空の場合は、エラーメッセージを反映
-            } else {
-                $('#address').val('該当する住所が存在しません。');
-            }
+$(function () {
+    $('#getCW').click(
+        function () {
+            $.ajax({
+                //自作 コワーキングスペースAPI
+                url: 'https://coworkingspaceapi.azurewebsites.net/Coworkingspace',
+                //通信方法
+                type: 'GET',
+                //データ形式を指定
+                dataType: 'json',
+                //通信に成功した場合の処理
+            }).done(function (data) {
+                alert("成功!");
+                $('#cw1_name').html(data[0].name);
+                $('#cw1_description').html(data[0].description);
+                $('#cw2_name').html(data[1].name);
+                $('#cw2_description').html(data[1].description);
+                $('#cw3_name').html(data[2].name);
+                $('#cw3_description').html(data[2].description);
+                //通信エラーになった場合の処理
+            }).fail(function (data) {
+                alert("失敗!");
+            });
         });
-}
+});
