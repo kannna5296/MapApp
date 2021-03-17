@@ -19,7 +19,7 @@ window.onload = (function (initMap) {
 
     // コワーキングスペース表示　リスナー設置
     document.getElementById("getCW").addEventListener("click", function () {
-        getCoworkingspapce();
+        getCoworkingspace();
     });
 });
 // 地点検索 地点⇔座標変換メソッド
