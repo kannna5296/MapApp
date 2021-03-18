@@ -89,6 +89,10 @@ body {
     margin: 5px 0px;
 }
 
+.wide {
+    width: 300px;
+}
+
 .btn:focus,
 .btn:hover {
     background-color: #fff;
