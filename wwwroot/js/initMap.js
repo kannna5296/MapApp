@@ -1,9 +1,15 @@
 window.onload = (function (initMap) {
     //初期表示（東京都庁）
+    var initLocation = { lat: 35.6896385, lng: 139.689912 };
     var map = new google.maps.Map(document.getElementById("map"), {
         zoom: 15,
-        center: { lat: 35.6896385, lng: 139.689912 },
+        center: initLocation
     });
+    var marker = new google.maps.Marker({
+        map: map,
+        position: initLocation
+    })
+
     // 地点検索 リスナー設置
     var geocoder = new google.maps.Geocoder();
     document.getElementById("getMap").addEventListener("click", function () {
