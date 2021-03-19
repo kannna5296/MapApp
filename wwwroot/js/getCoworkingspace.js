@@ -53,20 +53,28 @@ function displayMap(data) {
     var markers = Array(data.length);
     var infoWindows = Array(data.length);
 
+    var center = map.getCenter();
+
     for (let i = 0; i < data.length; i++) {
-        var cwLat = data[i].lat;
-        var cwLng = data[i].lon;
-        markers[i] = new google.maps.Marker({
-            map: map,
-            position: { lat: cwLat, lng: cwLng }
-        });
 
-        infoWindows[i] = new google.maps.InfoWindow({ // 吹き出しの追加
-            content: '<div class="map">' + data[i].name + '</div>' // 吹き出しに表示する内容
-        });
+        var place = new google.maps.LatLng(data[i].lat, data[i].lon);
+        var distance = google.maps.geometry.spherical.computeDistanceBetween(center, place);
 
-        markers[i].addListener('click', function () { // マーカーをクリックしたとき
-            infoWindows[i].open(map, markers[i]); // mapみmakerをの吹き出しの表示します
-        });
+        if (distance < 1400) {
+            var cwLat = data[i].lat;
+            var cwLng = data[i].lon;
+            markers[i] = new google.maps.Marker({
+                map: map,
+                position: { lat: cwLat, lng: cwLng }
+            });
+
+            infoWindows[i] = new google.maps.InfoWindow({ // 吹き出しの追加
+                content: '<div class="map">' + data[i].name + '</div> <div class="distance>' + distance + 'm</div>' // 吹き出しに表示する内容
+            });
+
+            markers[i].addListener('click', function () { // マーカーをクリックしたとき
+                infoWindows[i].open(map, markers[i]); // mapみmakerをの吹き出しの表示します
+            });
+        }
     }
 }
