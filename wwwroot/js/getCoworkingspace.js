@@ -36,24 +36,26 @@ function displayMap(data) {
         center: { lat: 35.6896385, lng: 139.689912 }
     });
 
-    // 地図範囲調整
-    map.fitBounds(new google.maps.LatLngBounds(
-        // sw
-        {
-            lat: Math.min(...data.map(d => d.lat)),
-            lng: Math.min(...data.map(d => d.lon))
-        },
-        // ne
-        {
-            lat: Math.max(...data.map(d => d.lat)),
-            lng: Math.max(...data.map(d => d.lon))
-        }
-    ));
-
     var markers = Array(data.length);
     var infoWindows = Array(data.length);
 
     var center = map.getCenter();
+
+    // 地図範囲調整
+    map.fitBounds(new google.maps.LatLngBounds(
+        // sw
+        {
+            lat: Math.min(...data.map(d => d.lat), center.lat()),
+            lng: Math.min(...data.map(d => d.lon), center.lng())
+        },
+        // ne
+        {
+            lat: Math.max(...data.map(d => d.lat), center.lat()),
+            lng: Math.max(...data.map(d => d.lon), center.lng())
+        }
+    ));
+
+
 
     for (let i = 0; i < data.length; i++) {
 
