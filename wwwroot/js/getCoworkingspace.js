@@ -60,7 +60,7 @@ function displayMap(data) {
         var place = new google.maps.LatLng(data[i].lat, data[i].lon);
         var distance = google.maps.geometry.spherical.computeDistanceBetween(center, place);
 
-        if (distance < 1400) {
+        if (distance < 2400) {
             var cwLat = data[i].lat;
             var cwLng = data[i].lon;
             markers[i] = new google.maps.Marker({
@@ -68,30 +68,36 @@ function displayMap(data) {
                 position: { lat: cwLat, lng: cwLng }
             });
 
-            infoWindows[i] = new google.maps.InfoWindow({ // 吹き出しの追加
-                content: '<div class="map">' + data[i].name + '</div> <div class="distance>' + distance + 'm</div>' // 吹き出しに表示する内容
+            // 吹き出しの追加
+            infoWindows[i] = new google.maps.InfoWindow({
+                content: '<div class="map">' + data[i].name + '</div> <div class="distance>' + distance + 'm</div>'
             });
 
-            markers[i].addListener('click', function () { // マーカーをクリックしたとき
-                infoWindows[i].open(map, markers[i]); // mapみmakerをの吹き出しの表示します
+            // マーカークリック時の吹き出し表示
+            markers[i].addListener('click', function () {
+                infoWindows[i].open(map, markers[i]);
             });
         }
     }
+    makeCurrentPos(map, center.lat(), center.lng());
+}
 
-    markers[data.length + 1] = new google.maps.Marker({
+function makeCurrentPos(map, currentLat, currentLon) {
+    var currentMarker = new google.maps.Marker({
         map: map,
-        position: { lat: center.lat(), lng: center.lng() },
+        position: { lat: currentLat, lng: currentLon },
         icon: {
             url: 'https://maps.google.com/mapfiles/ms/icons/purple-dot.png',
             scaledSize: new google.maps.Size(40, 40)
         }
-    });
+    })
 
-    infoWindows[data.length + 1] = new google.maps.InfoWindow({ // 吹き出しの追加
+    var currentMarkerWindow = new google.maps.InfoWindow({
         content: '<div class="map">現在地</div>'
     });
 
-    markers[data.length + 1].addListener('click', function () { // マーカーをクリックしたとき
-        infoWindows[data.length + 1].open(map, markers[data.length + 1]); // mapみmakerをの吹き出しの表示します
+    // マーカーをクリックしたとき
+    currentMarker.addListener('click', function () {
+        currentMarkerWindow.open(map, currentMarker); 
     });
-}
+};
