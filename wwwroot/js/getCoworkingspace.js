@@ -36,8 +36,8 @@ function displayMap(data) {
         center: { lat: 35.6896385, lng: 139.689912 }
     });
 
-    var markers = Array(data.length);
-    var infoWindows = Array(data.length);
+    var markers = Array(data.length + 1);
+    var infoWindows = Array(data.length + 1);
 
     var center = map.getCenter();
 
@@ -54,8 +54,6 @@ function displayMap(data) {
             lng: Math.max(...data.map(d => d.lon), center.lng())
         }
     ));
-
-
 
     for (let i = 0; i < data.length; i++) {
 
@@ -79,4 +77,21 @@ function displayMap(data) {
             });
         }
     }
+
+    markers[data.length + 1] = new google.maps.Marker({
+        map: map,
+        position: { lat: center.lat(), lng: center.lng() },
+        icon: {
+            url: 'https://maps.google.com/mapfiles/ms/icons/purple-dot.png',
+            scaledSize: new google.maps.Size(40, 40)
+        }
+    });
+
+    infoWindows[data.length + 1] = new google.maps.InfoWindow({ // 吹き出しの追加
+        content: '<div class="map">現在地</div>'
+    });
+
+    markers[data.length + 1].addListener('click', function () { // マーカーをクリックしたとき
+        infoWindows[data.length + 1].open(map, markers[data.length + 1]); // mapみmakerをの吹き出しの表示します
+    });
 }
