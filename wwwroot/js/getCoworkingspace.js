@@ -30,16 +30,16 @@ function displayHtml(data) {
 
 function displayMap(data) {
 
-    var map = new google.maps.Map(document.getElementById("map"), {
+    const map = new google.maps.Map(document.getElementById("map"), {
         zoom: 15,
         // 仮の値（東京都庁）
         center: { lat: 35.6896385, lng: 139.689912 }
     });
 
-    var markers = Array(data.length + 1);
-    var infoWindows = Array(data.length + 1);
+    const markers = Array(data.length + 1);
+    const infoWindows = Array(data.length + 1);
 
-    var center = map.getCenter();
+    const center = map.getCenter();
 
     // 地図範囲調整
     map.fitBounds(new google.maps.LatLngBounds(
@@ -55,14 +55,16 @@ function displayMap(data) {
         }
     ));
 
+    makeCurrentPos(map, center.lat(), center.lng());
+
     for (let i = 0; i < data.length; i++) {
 
-        var place = new google.maps.LatLng(data[i].lat, data[i].lon);
-        var distance = google.maps.geometry.spherical.computeDistanceBetween(center, place);
+        const place = new google.maps.LatLng(data[i].lat, data[i].lon);
+        const distance = google.maps.geometry.spherical.computeDistanceBetween(center, place);
 
         if (distance < 2400) {
-            var cwLat = data[i].lat;
-            var cwLng = data[i].lon;
+            const cwLat = data[i].lat;
+            const cwLng = data[i].lon;
             markers[i] = new google.maps.Marker({
                 map: map,
                 position: { lat: cwLat, lng: cwLng }
@@ -79,11 +81,11 @@ function displayMap(data) {
             });
         }
     }
-    makeCurrentPos(map, center.lat(), center.lng());
 }
 
+// 現在地マーカー作成
 function makeCurrentPos(map, currentLat, currentLon) {
-    var currentMarker = new google.maps.Marker({
+    const currentMarker = new google.maps.Marker({
         map: map,
         position: { lat: currentLat, lng: currentLon },
         icon: {
@@ -92,11 +94,11 @@ function makeCurrentPos(map, currentLat, currentLon) {
         }
     })
 
-    var currentMarkerWindow = new google.maps.InfoWindow({
+    const currentMarkerWindow = new google.maps.InfoWindow({
         content: '<div class="map">現在地</div>'
     });
 
-    // マーカーをクリックしたとき
+　　// マーカークリック時の吹き出し表示
     currentMarker.addListener('click', function () {
         currentMarkerWindow.open(map, currentMarker); 
     });
