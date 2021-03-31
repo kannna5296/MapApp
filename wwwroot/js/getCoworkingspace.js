@@ -10,8 +10,43 @@ $(function () {
                 dataType: 'json',
                 //通信に成功した場合の処理
             }).done(function (data) {
+
+                // データを地図外に表示
                 displayHtml(data);
-                displayMap(data);
+
+                const useCurrentPosition = document.getElementById("currentpositionflg");
+                if (useCurrentPosition.checked) {
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(
+                            function (position) {
+                                const currentLatLng = new google.maps.LatLng(
+                                    position.coords.latitude, position.coords.longitude);
+                                displayMapByCurrentPosition(data, currentLatLng);
+                            },
+                            function (error) {
+                                switch (error.code) {
+                                    case 1: // PERMISSION_DENIED
+                                        alert("位置情報の利用が許可されていません");
+                                        break;
+                                    case 2: // POSITION_UNAVAILABLE
+                                        alert("現在位置が取得できませんでした");
+                                        break;
+                                    case 3: // TIMEOUT
+                                        alert("タイムアウトになりました");
+                                        break;
+                                    default:
+                                        alert("その他のエラー(エラーコード:" + error.code + ")");
+                                        break;
+                                }
+                            } 
+                        )
+                    } else {
+                        alert("この端末では位置情報が取得できません");
+                    }
+                } else {
+                    displayMap(data);
+                }
+
                 //通信エラーになった場合の処理
             }).fail(function (data) {
                 alert("失敗しましたm(__)m");
@@ -34,6 +69,61 @@ function displayMap(data) {
         zoom: 15,
         // 仮の値（東京都庁）
         center: { lat: 35.6896385, lng: 139.689912 }
+    });
+
+    const markers = Array(data.length + 1);
+    const infoWindows = Array(data.length + 1);
+
+    const center = map.getCenter();
+
+    // 地図範囲調整
+    map.fitBounds(new google.maps.LatLngBounds(
+        // sw
+        {
+            lat: Math.min(...data.map(d => d.lat), center.lat()),
+            lng: Math.min(...data.map(d => d.lon), center.lng())
+        },
+        // ne
+        {
+            lat: Math.max(...data.map(d => d.lat), center.lat()),
+            lng: Math.max(...data.map(d => d.lon), center.lng())
+        }
+    ));
+
+    makeCurrentPos(map, center.lat(), center.lng());
+
+    for (let i = 0; i < data.length; i++) {
+
+        const place = new google.maps.LatLng(data[i].lat, data[i].lon);
+        const distance = google.maps.geometry.spherical.computeDistanceBetween(center, place);
+
+        if (distance < 2400) {
+            const cwLat = data[i].lat;
+            const cwLng = data[i].lon;
+            markers[i] = new google.maps.Marker({
+                map: map,
+                position: { lat: cwLat, lng: cwLng }
+            });
+
+            // 吹き出しの追加
+            infoWindows[i] = new google.maps.InfoWindow({
+                content: '<div class="map">' + data[i].name + '</div> <div class="distance>' + distance + 'm</div>'
+            });
+
+            // マーカークリック時の吹き出し表示
+            markers[i].addListener('click', function () {
+                infoWindows[i].open(map, markers[i]);
+            });
+        }
+    }
+}
+
+function displayMapByCurrentPosition(data, currentLatLng) {
+
+    const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 15,
+        // 現在地
+        center: currentLatLng
     });
 
     const markers = Array(data.length + 1);
