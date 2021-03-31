@@ -78,19 +78,18 @@ body {
     text-align: center;
     text-decoration: none;
     padding: 0 10px;
-    width: 150px;
+    width: 100%;
     max-width: 100%;
     background-color: #666666;
     border: 2px solid transparent;
     font-size: 1.125rem;
     color: #fff;
     transition: 0.25s;
-
     margin: 5px 0px;
 }
 
 .wide {
-    width: 300px;
+    width: 250px;
 }
 
 .btn:focus,
@@ -104,6 +103,29 @@ body {
     margin-bottom: 20px;
 }
 
-.description{
+.description {
     margin: 0;
+}
+
+.container {
+    width: 100%;
+}
+
+input {
+    width: 100%;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1200px;
+    }
+
+    #map {
+        height: 100%;
+        width: 100%;
+        background: #aaa;
+    }
+}
+
+@media (min-width: 768px) {
 }

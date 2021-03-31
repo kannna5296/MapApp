@@ -2,50 +2,49 @@
     ViewData["Title"] = "Home Page";
 }
 <div class="row">
-    <div class="col-md-8">
-        <p>The World from my view</p>
-        <div id="map" style="height:600px; width:600px;"></div>
-    </div>
-    <div class="col-md-4">
-        <div class="field">
-            <p class="description">地名を入力し、"View Map"を押してください</p>
-            <input id="address" type="text" />
+    <div class="col-md-3">
+        <div class="mb-md-5">
+            <p class="heading font-weight-bold">地点検索</p>
+            <input id="address" type="text" placeholder="地点を入力してください" />
             <button id="getMap" class="btn">Get Map</button>
-            <button id="getCW" class="btn wide">直近コワーキングスペース表示</button>
         </div>
-        <div class="field">
-            <p class="description">始点と終点を入力し、"Get Route"を押してください</p>
-            <input id="start" type="text" placeholder="始点" />
-            <input id="end" type="text" placeholder="終点" />
+        <div class="mb-md-5">
+            <p class="heading font-weight-bold">近隣コワーキングスペース検索</p>
+            <button id="getCW" class="btn">コワーキングスペース表示</button>
+        </div>
+        <div class="mb-md-5">
+            <p class="heading font-weight-bold">経路検索</p>
             <div>
-                <b>Mode of Travel: </b>
+                <input id="start" type="text" placeholder="始点を入力してください" />
+            </div>
+            <div>
+                <input id="end" type="text" placeholder="終点を入力してください" />
+            </div>
+            <div>
+                移動方法
                 <select id="travelmode">
-                    <option value="DRIVING">Driving</option>
-                    <option value="WALKING">Walking</option>
-                    <option value="BICYCLING">Bicycling</option>
-                    <option value="TRANSIT">Transit</option>
+                    <option value="DRIVING">車</option>
+                    <option value="WALKING">徒歩</option>
+                    <option value="BICYCLING">自転車</option>
+                    <option value="TRANSIT">電車</option>
                 </select>
             </div>
             <button id="getRoute" class="btn" value="Get Route">Get Route</button>
         </div>
     </div>
-</div>
-
-<div class="row">
-
-    <div class="col-md-4">
+    <div class="col-md-6">
+        <div id="map"></div>
+    </div>
+    <div class="col-md-3">
         <p>CW詳細A</p>
-        <p id="cw1_name"></p>
-        <p id="cw1_description"></p>
-    </div>
-    <div class="col-md-4">
+        <p id="cw1_name">AAA_名前</p>
+        <p id="cw1_description">AAA_説明</p>
         <p>CW詳細B</p>
-        <p id="cw2_name"></p>
-        <p id="cw2_description"></p>
-    </div>
-    <div class="col-md-4">
+        <p id="cw2_name">BBB_名前</p>
+        <p id="cw2_description">BBB_説明</p>
         <p>CW詳細C</p>
-        <p id="cw3_name"></p>
-        <p id="cw3_description"></p>
+        <p id="cw3_name">CCC_名前</p>
+        <p id="cw3_description">CCC_説明</p>
     </div>
+
 </div>
