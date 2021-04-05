@@ -38,7 +38,7 @@ $(function () {
                                         alert("その他のエラー(エラーコード:" + error.code + ")");
                                         break;
                                 }
-                            } 
+                            }
                         )
                     } else {
                         alert("この端末では位置情報が取得できません");
@@ -71,105 +71,123 @@ function displayMap(data) {
         center: { lat: 35.6896385, lng: 139.689912 }
     });
 
-    const markers = Array(data.length + 1);
-    const infoWindows = Array(data.length + 1);
-
+    //現在地表示
     const center = map.getCenter();
-
-    // 地図範囲調整
-    map.fitBounds(new google.maps.LatLngBounds(
-        // sw
-        {
-            lat: Math.min(...data.map(d => d.lat), center.lat()),
-            lng: Math.min(...data.map(d => d.lon), center.lng())
-        },
-        // ne
-        {
-            lat: Math.max(...data.map(d => d.lat), center.lat()),
-            lng: Math.max(...data.map(d => d.lon), center.lng())
-        }
-    ));
-
     makeCurrentPos(map, center.lat(), center.lng());
 
+    //データを距離によって選択
+    var arrayPlace = [];
+    var arrayName = [];
     for (let i = 0; i < data.length; i++) {
 
         const place = new google.maps.LatLng(data[i].lat, data[i].lon);
         const distance = google.maps.geometry.spherical.computeDistanceBetween(center, place);
 
         if (distance < 2400) {
-            const cwLat = data[i].lat;
-            const cwLng = data[i].lon;
-            markers[i] = new google.maps.Marker({
-                map: map,
-                position: { lat: cwLat, lng: cwLng }
-            });
-
-            // 吹き出しの追加
-            infoWindows[i] = new google.maps.InfoWindow({
-                content: '<div class="map">' + data[i].name + '</div> <div class="distance>' + distance + 'm</div>'
-            });
-
-            // マーカークリック時の吹き出し表示
-            markers[i].addListener('click', function () {
-                infoWindows[i].open(map, markers[i]);
-            });
+            arrayPlace.push(place);
+            arrayName.push(data[i].name);
         }
+    }
+
+    // 地図範囲調整
+    map.fitBounds(new google.maps.LatLngBounds(
+        // sw
+        {
+            lat: Math.min(...arrayPlace.map(d => d.lat())),
+            lng: Math.min(...arrayPlace.map(d => d.lng()))
+        },
+        // ne
+        {
+            lat: Math.max(...arrayPlace.map(d => d.lat())),
+            lng: Math.max(...arrayPlace.map(d => d.lng()))
+        }
+    ));
+
+    const markers = Array(arrayPlace.length);
+    const infoWindows = Array(arrayPlace.length);
+
+    for (let i = 0; i < arrayPlace.length; i++) {
+
+        const cwLat = arrayPlace[i].lat();
+        const cwLng = arrayPlace[i].lng();
+        markers[i] = new google.maps.Marker({
+            map: map,
+            position: { lat: cwLat, lng: cwLng }
+        });
+
+        // 吹き出しの追加
+        infoWindows[i] = new google.maps.InfoWindow({
+            content: '<div class="map">' + arrayName[i] + '</div>'
+        });
+
+        // マーカークリック時の吹き出し表示
+        markers[i].addListener('click', function () {
+            infoWindows[i].open(map, markers[i]);
+        });
     }
 }
 
 function displayMapByCurrentPosition(data, currentLatLng) {
 
-    const map = new google.maps.Map(document.getElementById("map"), {
+    var map = new google.maps.Map(document.getElementById("map"), {
         zoom: 15,
         // 現在地
         center: currentLatLng
     });
 
-    const markers = Array(data.length + 1);
-    const infoWindows = Array(data.length + 1);
-
+    //現在地表示
     const center = map.getCenter();
-
-    // 地図範囲調整
-    map.fitBounds(new google.maps.LatLngBounds(
-        // sw
-        {
-            lat: Math.min(...data.map(d => d.lat), center.lat()),
-            lng: Math.min(...data.map(d => d.lon), center.lng())
-        },
-        // ne
-        {
-            lat: Math.max(...data.map(d => d.lat), center.lat()),
-            lng: Math.max(...data.map(d => d.lon), center.lng())
-        }
-    ));
-
     makeCurrentPos(map, center.lat(), center.lng());
 
+    //データを距離によって選択
+    var arrayPlace = [];
+    var arrayName = [];
     for (let i = 0; i < data.length; i++) {
 
         const place = new google.maps.LatLng(data[i].lat, data[i].lon);
         const distance = google.maps.geometry.spherical.computeDistanceBetween(center, place);
 
         if (distance < 2400) {
-            const cwLat = data[i].lat;
-            const cwLng = data[i].lon;
-            markers[i] = new google.maps.Marker({
-                map: map,
-                position: { lat: cwLat, lng: cwLng }
-            });
-
-            // 吹き出しの追加
-            infoWindows[i] = new google.maps.InfoWindow({
-                content: '<div class="map">' + data[i].name + '</div> <div class="distance>' + distance + 'm</div>'
-            });
-
-            // マーカークリック時の吹き出し表示
-            markers[i].addListener('click', function () {
-                infoWindows[i].open(map, markers[i]);
-            });
+            arrayPlace.push(place);
+            arrayName.push(data[i].name);
         }
+    }
+
+    // 地図範囲調整
+    map.fitBounds(new google.maps.LatLngBounds(
+        // sw
+        {
+            lat: Math.min(...arrayPlace.map(d => d.lat())),
+            lng: Math.min(...arrayPlace.map(d => d.lng()))
+        },
+        // ne
+        {
+            lat: Math.max(...arrayPlace.map(d => d.lat())),
+            lng: Math.max(...arrayPlace.map(d => d.lng()))
+        }
+    ));
+
+    const markers = Array(arrayPlace.length);
+    const infoWindows = Array(arrayPlace.length);
+
+    for (let i = 0; i < arrayPlace.length; i++) {
+
+        const cwLat = arrayPlace[i].lat();
+        const cwLng = arrayPlace[i].lng();
+        markers[i] = new google.maps.Marker({
+            map: map,
+            position: { lat: cwLat, lng: cwLng }
+        });
+
+        // 吹き出しの追加
+        infoWindows[i] = new google.maps.InfoWindow({
+            content: '<div class="map">' + arrayName[i] + '</div>'
+        });
+
+        // マーカークリック時の吹き出し表示
+        markers[i].addListener('click', function () {
+            infoWindows[i].open(map, markers[i]);
+        });
     }
 }
 
@@ -188,8 +206,8 @@ function makeCurrentPos(map, currentLat, currentLon) {
         content: '<div class="map">現在地</div>'
     });
 
-　　// マーカークリック時の吹き出し表示
+    // マーカークリック時の吹き出し表示
     currentMarker.addListener('click', function () {
-        currentMarkerWindow.open(map, currentMarker); 
+        currentMarkerWindow.open(map, currentMarker);
     });
 };
