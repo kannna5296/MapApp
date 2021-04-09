@@ -57,10 +57,19 @@ $(function () {
 function displayHtml(data) {
     $('#cw1_name').html(data[0].name);
     $('#cw1_description').html(data[0].description);
+    $('#cw1_link').html("公式サイト");
+    var target1 = document.getElementById("cw1_link");
+    target1.href = data[0].url;
     $('#cw2_name').html(data[1].name);
     $('#cw2_description').html(data[1].description);
+    $('#cw2_link').html("公式サイト");
+    var target2 = document.getElementById("cw2_link");
+    target2.href = data[1].url;
     $('#cw3_name').html(data[2].name);
     $('#cw3_description').html(data[2].description);
+    $('#cw3_link').html("公式サイト");
+    var target3 = document.getElementById("cw3_link");
+    target3.href = data[2].url;
 }
 
 function displayMap(data) {
