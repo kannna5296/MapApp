@@ -73,7 +73,7 @@ body {
     line-height: 60px; /* Vertically center the text there */
 }
 
-.btn {
+/*.btn {
     display: block;
     text-align: center;
     text-decoration: none;
@@ -86,14 +86,14 @@ body {
     color: #fff;
     transition: 0.25s;
     margin: 5px 0px;
-}
+}*/
 
-    .btn:focus,
+/*    .btn:focus,
     .btn:hover {
         background-color: #fff;
         color: #666666;
         border-color: currentColor;
-    }
+    }*/
 
 .description {
     margin: 0;
@@ -107,31 +107,42 @@ body {
     width: 100%;
 }
 
-
-
 @media (min-width: 1200px) {
-    .container {
-        max-width: 1200px;
-    }
-
     #map {
-        height: 100vh;
+        height: calc( 100vh - 55px );
         width: 100%;
         background: #aaa;
     }
 }
 
-@media (max-width: 426px) {
-    #map {
-        height: 100vh;
-        background: #aaa;
-    }
+#floating-panel {
+    width: 320px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 5;
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #999;
+    line-height: 30px;
+    padding-left: 10px;
 
-    header {
-        display: none;
-    }
+    border-radius: 5px;
+}
 
-    .main-container {
-        margin-top: 14px;
-    }
+.searchbutton {
+    width: 10%;
+}
+
+.searchbox {
+    width: 85%;
+    border: none;
+}
+
+.searchbox:focus {
+    outline: none;
+}
+
+.fab {
+    padding-right: 15px;
 }

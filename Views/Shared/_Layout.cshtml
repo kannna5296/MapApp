@@ -11,38 +11,25 @@
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXliToLxpMEYxKmmidqrLIq4nA-a2_1vc&libraries=geometry,places"
             async></script>
+    <script src="https://kit.fontawesome.com/c4b2d4b6d6.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
-        @*<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MapApp</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>*@
-    </header>
-    @*<div class="container main-container">
-        <main role="main" class="pb-3">*@
-            @RenderBody()
-        @*</main>
-    </div>*@
-
+    <div>
+    @RenderBody()
+    </div>
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2021 - MapApp
+            <div class="row">
+                <div class="col-8">&copy; 2021 - MapApp(GoogleMapAPIを用いた簡易地図アプリ) created by Hiro</div>
+                <div class="col-4">
+                    <a href="https://twitter.com/Jzm_engineer" target="_blank">
+                        <i class="fab fa-twitter-square fa-2x" style="vertical-align: middle;"></i>
+                    </a>
+                    <a href="https://github.com/kannna5296" target="_blank">
+                        <i class="fab fa-github-square fa-2x" style="vertical-align: middle;"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

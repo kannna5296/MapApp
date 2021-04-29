@@ -13,6 +13,7 @@ window.onload = (function (initMap) {
     //検索窓追加
     const input = document.getElementById("pac-input");
     const searchBox = new google.maps.places.SearchBox(input);
+    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 });
 
 // 地点検索 地点⇔座標変換
