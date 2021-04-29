@@ -9,6 +9,10 @@ window.onload = (function (initMap) {
         map: map,
         position: initLocation
     })
+
+    //検索窓追加
+    const input = document.getElementById("pac-input");
+    const searchBox = new google.maps.places.SearchBox(input);
 });
 
 // 地点検索 地点⇔座標変換
