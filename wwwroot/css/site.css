@@ -109,16 +109,15 @@ body {
 
 @media (min-width: 1200px) {
     #map {
-        height: calc( 100vh - 55px );
+        height: calc( 100vh - 80px );
         width: 100%;
         background: #aaa;
     }
 }
 
-#floating-panel {
+.floating-panel {
     width: 320px;
     position: absolute;
-    top: 10px;
     left: 10px;
     z-index: 5;
     background-color: #fff;
@@ -128,6 +127,22 @@ body {
     padding-left: 10px;
 
     border-radius: 5px;
+}
+
+.top {
+    top: 10px;
+}
+
+.second {
+    top: 100px;
+}
+
+.third {
+    top: 260px;
+}
+
+.p-normalize {
+    margin-bottom: 0;
 }
 
 .searchbutton {

@@ -5,11 +5,42 @@
     <div class="col-xs-12 col-sm-12 order-sm-2">
         <div id="map"></div>
     </div>
-    <div id="floating-panel">
-       <input id="address" class="searchbox" type="text" placeholder="地点検索" autofocus/>
-       <button id="getMap" class="searchbutton">
-           <i class="fas fa-search"></i>
-       </button>
+    <div class="floating-panel top">
+        <p class="font-weight-bold p-normalize">地点検索</p>
+        <input id="address" class="searchbox" type="text" placeholder="地点を入力" autofocus />
+        <button id="getMap" class="searchbutton">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
+    <div class="floating-panel second">
+        <p class="font-weight-bold p-normalize">経路検索</p>
+        <input id="start" class="searchbox" type="text" placeholder="始点" autofocus />
+        <input id="end" class="searchbox" type="text" placeholder="終点" autofocus />
+        <select id="travelmode" class="searchbox bg-light">
+            <option value="dummy">移動手段を選択してください</option>
+            <option value="DRIVING">車</option>
+            <option value="WALKING">徒歩</option>
+            <option value="BICYCLING">自転車</option>
+            <option value="TRANSIT">電車</option>
+        </select>
+        <button id="getRoute" class="searchbutton">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
+    <div class="floating-panel third">
+        <p class="font-weight-bold p-normalize">コワーキングスペース検索</p>
+        <select id="station-area" class="searchbox bg-light">
+            <option value="dummy">駅エリアを選択してください</option>
+            <option value="SHIBUYA">渋谷駅</option>
+            <option value="SHINJUKU">新宿駅</option>
+        </select>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="currentpositionflg">
+            <label class="form-check-label" for="currentpositionflg">現在地周辺を検索</label>
+        </div>
+        <button id="getCW" class="searchbutton">
+            <i class="fas fa-search"></i>
+        </button>
     </div>
     @*<div class="col-xs-12 col-sm-3 order-sm-1">
             <div class="mb-3">
@@ -25,25 +56,7 @@
                 </div>
                 <button id="getCW" class="btn">コワーキングスペース表示</button>
             </div>
-            <div>
-                <div class="heading font-weight-bold">経路検索</div>
-                <div>
-                    <input class="width-full" id="start" type="text" placeholder="始点を入力してください" />
-                </div>
-                <div>
-                    <input class="width-full" id="end" type="text" placeholder="終点を入力してください" />
-                </div>
-                <div>
-                    移動方法
-                    <select id="travelmode">
-                        <option value="DRIVING">車</option>
-                        <option value="WALKING">徒歩</option>
-                        <option value="BICYCLING">自転車</option>
-                        <option value="TRANSIT">電車</option>
-                    </select>
-                </div>
-                <button id="getRoute" class="btn" value="Get Route">Get Route</button>
-            </div>
+
         </div>*@
 
     @*<div class="col-xs-12 col-sm-3 order-sm-3">
