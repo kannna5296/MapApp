@@ -34,13 +34,15 @@
             <option value="SHIBUYA">渋谷駅</option>
             <option value="SHINJUKU">新宿駅</option>
         </select>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="currentpositionflg">
-            <label class="form-check-label" for="currentpositionflg">現在地周辺を検索</label>
+        <div class="d-flex flex-row">
+            <div class="form-check w-87">
+                <input class="form-check-input" type="checkbox" id="currentpositionflg">
+                <label class="form-check-label" for="currentpositionflg">現在地周辺を検索</label>
+            </div>
+            <button id="getCW" class="searchbutton">
+                <i class="fas fa-search"></i>
+            </button>
         </div>
-        <button id="getCW" class="searchbutton">
-            <i class="fas fa-search"></i>
-        </button>
     </div>
     @*<div class="col-xs-12 col-sm-3 order-sm-1">
             <div class="mb-3">

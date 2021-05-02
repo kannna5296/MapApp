@@ -145,8 +145,15 @@ body {
     margin-bottom: 0;
 }
 
+.w-87 {
+    width: 87%;
+}
+
 .searchbutton {
     width: 10%;
+    background: none;
+    color: #999999;
+    border: none;
 }
 
 .searchbox {
