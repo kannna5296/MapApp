@@ -154,6 +154,13 @@ body {
     background: none;
     color: #999999;
     border: none;
+    transition: all 0.5s;
+}
+
+.searchbutton:focus,
+.searchbutton:hover {
+    background-color: deepskyblue;
+    color: white;
 }
 
 .searchbox {
