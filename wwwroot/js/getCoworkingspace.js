@@ -123,16 +123,6 @@ function displayMap(data) {
             map: map,
             position: { lat: cwLat, lng: cwLng }
         });
-
-        // 吹き出しの追加
-        infoWindows[i] = new google.maps.InfoWindow({
-            content: '<div class="map">' + arrayName[i] + '</div>'
-        });
-
-        // マーカークリック時の吹き出し表示
-        markers[i].addListener('click', function () {
-            infoWindows[i].open(map, markers[i]);
-        });
     }
 }
 
@@ -186,16 +176,6 @@ function displayMapByCurrentPosition(data, currentLatLng) {
         markers[i] = new google.maps.Marker({
             map: map,
             position: { lat: cwLat, lng: cwLng }
-        });
-
-        // 吹き出しの追加
-        infoWindows[i] = new google.maps.InfoWindow({
-            content: '<div class="map">' + arrayName[i] + '</div>'
-        });
-
-        // マーカークリック時の吹き出し表示
-        markers[i].addListener('click', function () {
-            infoWindows[i].open(map, markers[i]);
         });
     }
 }
